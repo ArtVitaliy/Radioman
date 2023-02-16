@@ -1,40 +1,55 @@
 package ru.netology.radioman;
 
 public class Radio {
-    private int numberStation;
-    private int currentVolume;
+    private int maxNumberStation = 9;
+    private int minNumberStation = 0;
+    private int numberStation = minNumberStation;
+    private int maxVolume = 100;
+    private int minVolume = 0;
+    private int currentVolume = minVolume;
 
 
+    public Radio(int counterStation) {
+        maxNumberStation = counterStation - 1;
+    }
+
+    public Radio() {
+
+    }
+    
     public int getNumberStation() {
+
         return numberStation;
     }
 
     public int getCurrentVolume() {
+
         return currentVolume;
     }
 
+
     public void next() {
-        if (numberStation < 9) {
+        if (numberStation < maxNumberStation) {
             numberStation++;
         } else {
-            numberStation = 0;
+            numberStation = minNumberStation;
         }
     }
 
     public void prev() {
-        if (numberStation > 0) {
+        if (numberStation > minNumberStation) {
             numberStation--;
         } else {
-            numberStation = 9;
+            numberStation = maxNumberStation;
         }
     }
 
 
     public void setNumberStation(int numberStation) {
-        if (numberStation < 0) {
+        if (numberStation < minNumberStation) {
             return;
         }
-        if (numberStation > 9) {
+        if (numberStation > maxNumberStation) {
             return;
         }
         this.numberStation = numberStation;
@@ -43,17 +58,17 @@ public class Radio {
 
     public void setCurrentVolume(int currentVolume) {
 
-        if (currentVolume > 10) {
+        if (currentVolume > maxVolume) {
             return;
         }
-        if (currentVolume < 0) {
+        if (currentVolume < minVolume) {
             return;
         }
         this.currentVolume = currentVolume;
     }
 
     public void increaseVolume() {
-        if (currentVolume < 10) {
+        if (currentVolume < maxVolume) {
             currentVolume = currentVolume + 1;
         } else {
             currentVolume = 0;
