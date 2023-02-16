@@ -4,6 +4,9 @@ public class Radio {
     private int maxNumberStation = 9;
     private int minNumberStation = 0;
     private int numberStation = minNumberStation;
+    private int maxVolume = 100;
+    private int minVolume = 0;
+    private int currentVolume = minVolume;
 
 
     public Radio(int counterStation) {
@@ -13,12 +16,7 @@ public class Radio {
     public Radio() {
 
     }
-
-    private int maxVolume = 100;
-    private int minVolume = 0;
-    private int currentVolume = minVolume;
-
-
+    
     public int getNumberStation() {
 
         return numberStation;
@@ -28,6 +26,7 @@ public class Radio {
 
         return currentVolume;
     }
+
 
     public void next() {
         if (numberStation < maxNumberStation) {
